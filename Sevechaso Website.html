@@ -3,126 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sevechaso Website - Una colección de enlaces útiles y entretenidos">
-    <title>Sevechaso Website</title>
+    <title>Sevechaso | Gaming Links</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google AdSense (opcional) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TU_ID"></script>
     <style>
+        /* Estilos básicos (morado/verde/azul/rojo) */
         body {
             font-family: 'Arial', sans-serif;
+            background: #1a1a2e; /* Fondo oscuro gamer */
+            color: white;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
         }
         header {
-            background-color: #343a40;
-            color: white;
+            background: linear-gradient(90deg, #6a00ff, #00ff88);
+            padding: 2rem;
             text-align: center;
-            padding: 1.5rem 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: bold;
+        .gaming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
         }
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.1rem;
-            color: #ced4da;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .link-category {
-            margin-bottom: 20px;
-        }
-        .link-category h2 {
-            color: #007bff;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #495057;
-            font-size: 1.1rem;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #007bff;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            text-align: center;
+        .game-card {
+            background: #16213e;
+            border-radius: 10px;
             padding: 1rem;
-            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .game-card:hover {
+            transform: scale(1.05);
+            border: 2px solid #ff2d75;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Sevechaso Website</h1>
-        <p>Tu colección de enlaces útiles y entretenidos</p>
+        <h1>🎮 SEVECHASO 🎮</h1>
+        <p>Los mejores enlaces gaming, actualizados automáticamente</p>
     </header>
-    <div class="container">
-        <!-- Espacio para el script de Google AdSense -->
-        <div id="adsense">
-            <!-- Inserta aquí el script de Google AdSense -->
+
+    <div class="gaming-grid">
+        <!-- Sección Twitch -->
+        <div class="game-card" style="border-left: 5px solid #9147ff;">
+            <h2>🔴 Twitch</h2>
+            <a href="https://twitch.tv/sevec_pro" target="_blank">sevec_pro</a>
         </div>
-        <!-- Categoría: Herramientas Útiles -->
-        <div class="link-category">
-            <h2>Herramientas Útiles</h2>
-            <ul>
-                <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></li>
-                <li><a href="https://www.unifire.ai/tools/ai-timeline-generator/" target="_blank">AI Timeline Generator</a></li>
-                <li><a href="https://notegpt.ai/" target="_blank">NoteGPT</a></li>
-                <li><a href="https://sites.google.com/classrooms.management/view/" target="_blank">Classrooms Management</a></li>
-            </ul>
+
+        <!-- Sección YouTube -->
+        <div class="game-card" style="border-left: 5px solid #ff0000;">
+            <h2>▶ YouTube</h2>
+            <a href="https://youtube.com/SEVECHASO" target="_blank">PG: SEVECHASO</a>
         </div>
-        <!-- Categoría: Entretenimiento -->
-        <div class="link-category">
-            <h2>Entretenimiento</h2>
-            <ul>
-                <li><a href="https://youtube.com/" target="_blank">YouTube</a></li>
-                <li><a href="https://www.twitch.tv/" target="_blank">Twitch</a></li>
-                <li><a href="https://www.spotify.com/" target="_blank">Spotify</a></li>
-                <li><a href="https://myinstants.com/" target="_blank">MyInstants</a></li>
-            </ul>
-        </div>
-        <!-- Categoría: Juegos -->
-        <div class="link-category">
-            <h2>Juegos</h2>
-            <ul>
-                <li><a href="https://bloxd.io/" target="_blank">Bloxd.io</a></li>
-                <li><a href="https://1v1lol-unblocked.io/" target="_blank">1v1 LOL Unblocked</a></li>
-                <li><a href="https://sites.google.com/site/unblockedgames77/" target="_blank">Unblocked Games 77</a></li>
-                <li><a href="https://www.talp.upc.edu/themes/unblocked/" target="_blank">Unblocked Games - TALP</a></li>
-            </ul>
-        </div>
-        <!-- Categoría: Redes Sociales -->
-        <div class="link-category">
-            <h2>Redes Sociales</h2>
-            <ul>
-                <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
-            </ul>
-        </div>
+
+        <!-- Añade más secciones aquí -->
     </div>
-    <footer>
-        <p>Creado por Ángel Padrón - 2025 | <a href="https://sevechasowebsite.com" style="color: #ffffff;">sevechasowebsite.com</a></p>
-    </footer>
+
+    <!-- Imagen Splatoon 3 -->
+    <div style="text-align: center; margin: 2rem;">
+        <img src="assets/splatoon3.jpg" alt="Splatoon 3" width="300" style="border-radius: 10px;">
+    </div>
 </body>
 </html>
