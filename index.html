@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sevechaso | Zona Gamer</title>
+  <title>Sevechaso | Zona Gamer Definitiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   
   <style>
+    :root {
+      --primary: #ff2d75;
+      --secondary: #00ffaa;
+      --dark: #0f0c29;
+      --light: #ffffff;
+      --twitch: #9147ff;
+      --youtube: #ff0000;
+      --tiktok: #00f2ea;
+      --steam: #66c0f4;
+      --epic: #000000;
+      --kick: #53fc18;
+      --discord: #5865F2;
+    }
+    
     html, body {
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
+      font-family: 'Poppins', sans-serif;
+      color: var(--light);
       height: 100%;
-      background-color: #0f0c29;
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      overflow-x: hidden;
     }
 
     body::before {
@@ -23,188 +41,1806 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://i.imgur.com/TWq1Wbc.jpg'); /* Fondo marino/Splatoon */
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 45, 117, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 170, 0.15) 0%, transparent 20%),
+        url('https://i.imgur.com/TWq1Wbc.jpg');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
       z-index: -1;
-      opacity: 0.15;
+      opacity: 0.2;
     }
 
-    header {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.7);
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(15, 12, 41, 0.9);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #ff2d75;
-      margin-bottom: 0.5rem;
+    .nav-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(255, 45, 117, 0.5);
+      letter-spacing: 2px;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      color: #ffffffcc;
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
     }
 
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,45,117,0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 45, 117, 0.5);
+      letter-spacing: 3px;
+      animation: glow 2s infinite alternate;
+      line-height: 1.2;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 45, 117, 0.5);
+      }
+      to {
+        text-shadow: 0 0 15px rgba(255, 45, 117, 0.8), 0 0 20px rgba(255, 45, 117, 0.4);
+      }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 45, 117, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #ff1a66;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 45, 117, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Floating elements */
+    .floating {
+      position: absolute;
+      animation: floating 3s ease-in-out infinite;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating-1 {
+      top: 20%;
+      left: 10%;
+      width: 50px;
+      animation-delay: 0s;
+    }
+
+    .floating-2 {
+      top: 60%;
+      right: 15%;
+      width: 70px;
+      animation-delay: 0.5s;
+    }
+
+    .floating-3 {
+      bottom: 10%;
+      left: 20%;
+      width: 40px;
+      animation-delay: 1s;
+    }
+
+    /* General sections */
     .section {
-      padding: 2rem;
-      backdrop-filter: blur(5px);
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
+    /* Cards */
     .card {
-      background: rgba(0,0,0,0.6);
-      border-radius: 10px;
-      padding: 1rem;
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      padding: 1.5rem;
       text-align: center;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0,255,150,0.4);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 255, 150, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .card img {
-      width: 40px;
-      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
     }
 
-    iframe {
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+    }
+
+    .card p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+    }
+
+    .card a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Clips Section */
+    .clips-section {
+      background: rgba(15, 12, 41, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clips-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 300px;
-      border-radius: 12px;
-      border: none;
+      height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(0, 255, 170, 0.05) 0%, transparent 50%);
+      z-index: -1;
     }
 
+    .clip-card {
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .clip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 255, 170, 0.3);
+    }
+
+    .clip-thumbnail {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .clip-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .clip-card:hover .clip-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 45, 117, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .clip-card:hover .play-icon {
+      opacity: 1;
+    }
+
+    .play-icon i {
+      color: white;
+      font-size: 1.2rem;
+      margin-left: 3px;
+    }
+
+    .clip-info {
+      padding: 1rem;
+    }
+
+    .clip-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .clip-meta {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+    }
+
+    .clip-author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .clip-author img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .clip-author span {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Game Search Section */
+    .game-search-section {
+      background: rgba(15, 12, 41, 0.5);
+      position: relative;
+    }
+
+    .game-search-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 70%, rgba(255, 45, 117, 0.05) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .search-container {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding-right: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 0 2px rgba(255, 45, 117, 0.5);
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-btn:hover {
+      background: #ff1a66;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .game-info-container {
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .game-header {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .game-cover {
+      width: 200px;
+      height: 250px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .game-details h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .game-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .game-meta span {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+
+    .game-description {
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .game-videos {
+      margin-top: 2rem;
+    }
+
+    .game-videos h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .loading-spinner {
+      display: none;
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+      margin: 2rem auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Stats Section */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 170, 0.2);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Events Section */
+    .events-section {
+      background: rgba(15, 12, 41, 0.5);
+      position: relative;
+    }
+
+    .events-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 45, 117, 0.05) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .event-card {
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 45, 117, 0.2);
+    }
+
+    .event-date {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .event-desc {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    .event-meta {
+      display: flex;
+      gap: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+    }
+
+    .event-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       font-size: 0.9rem;
-      color: #ffffff88;
-      padding: 2rem 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 1rem;
+      background: rgba(15, 12, 41, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
 
+    .footer-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: var(--primary);
+    }
+
+    .copyright {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    /* Botón volver arriba */
     .btn-top {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #ff2d75;
+      background: var(--primary);
       color: white;
-      padding: 10px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
       border-radius: 50%;
       font-size: 1.2rem;
       cursor: pointer;
       z-index: 1000;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 45, 117, 0.4);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .btn-top.active {
+      opacity: 1;
+      visibility: visible;
     }
 
     .btn-top:hover {
-      background: #ff4d8b;
+      background: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 255, 170, 0.4);
+    }
+
+    /* Efecto de partículas */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Animación de carga */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    .loader-text {
+      color: var(--light);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* Cursor personalizado */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 45, 117, 0.7);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease;
+    }
+
+    .cursor-follower {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 255, 170, 0.3);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+      transition: transform 0.3s ease;
+    }
+
+    /* Swiper */
+    .swiper {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 3rem;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: rgba(15, 12, 41, 0.7);
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .game-header {
+        flex-direction: column;
+      }
+      
+      .game-cover {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        margin-top: 1rem;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .section {
+        padding: 3rem 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4797781361837050" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1>🎮 SEVECHASO 🎮</h1>
-    <p class="subtitle">Tu zona gamer definitiva</p>
-  </header>
+  <!-- Animación de carga -->
+  <div class="loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">CARGANDO SEVECHASO...</div>
+  </div>
 
-  <!-- Botón volver arriba -->
-  <button class="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+  <!-- Cursor personalizado -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Efecto de partículas -->
+  <div class="particles" id="particles-js"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">SEVECHASO</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#clips">Clips</a>
+      <a href="#juegos">Info Juegos</a>
+      <a href="#redes">Redes</a>
+      <a href="#eventos">Eventos</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <img src="https://i.imgur.com/JXj4P1x.png" alt="Floating game controller" class="floating floating-1">
+    <img src="https://i.imgur.com/5zJgW7D.png" alt="Floating joystick" class="floating floating-2">
+    <img src="https://i.imgur.com/8XJQZbP.png" alt="Floating headset" class="floating floating-3">
+    
+    <h1>TU ZONA GAMER DEFINITIVA</h1>
+    <p>Streams, clips, torneos y toda la información sobre tus juegos favoritos en un solo lugar</p>
+    <div class="hero-btns">
+      <a href="https://twitch.tv/sevec_pro" target="_blank" class="btn btn-primary">
+        <i class="fab fa-twitch"></i> Ver Directo
+      </a>
+      <a href="#clips" class="btn btn-secondary">
+        <i class="fas fa-play"></i> Ver Clips
+      </a>
+    </div>
+  </section>
 
   <!-- Anuncio superior -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-client="ca-pub-4797781361837050"
-       data-ad-slot="9624223435"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-4797781361837050"
+         data-ad-slot="9624223435"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
-  <!-- Sección de Enlaces Principales -->
+  <!-- Sección de Estadísticas -->
   <section class="section">
-    <h2>Redes y Plataformas</h2>
-    <div class="grid">
-      <div class="card" style="border-left: 5px solid #9147ff;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg" alt="Twitch">
-        <h3>Twitch</h3>
-        <a href="https://twitch.tv/sevec_pro" target="_blank">sevec_pro</a>
+    <h2 class="section-title">ESTADÍSTICAS</h2>
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-number" id="twitch-followers">0</div>
+        <div class="stat-label">Seguidores en Twitch</div>
       </div>
-      <div class="card" style="border-left: 5px solid #ff0000;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
-        <h3>YouTube</h3>
-        <a href="https://youtube.com/@PGSEVECHASO" target="_blank">PG: SEVECHASO</a>
+      <div class="stat-card">
+        <div class="stat-number" id="youtube-subs">0</div>
+        <div class="stat-label">Suscriptores en YouTube</div>
       </div>
-      <div class="card" style="border-left: 5px solid #00f2ea;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok">
-        <h3>TikTok</h3>
-        <a href="https://www.tiktok.com/@yoichi_sano" target="_blank">@yoichi_sano</a>
+      <div class="stat-card">
+        <div class="stat-number" id="tiktok-followers">0</div>
+        <div class="stat-label">Seguidores en TikTok</div>
       </div>
-      <div class="card" style="border-left: 5px solid #66c0f4;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
-        <h3>Steam</h3>
-        <a href="https://store.steampowered.com/" target="_blank">store.steampowered.com</a>
-      </div>
-      <div class="card" style="border-left: 5px solid #000;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games">
-        <h3>Epic Games</h3>
-        <a href="https://www.epicgames.com/store/" target="_blank">epicgames.com</a>
-      </div>
-      <div class="card" style="border-left: 5px solid #53fc18;">
-        <img src="https://seeklogo.com/images/K/kick-logo-22BFD27E9D-seeklogo.com.png" alt="Kick" width="40">
-        <h3>Kick</h3>
-        <a href="https://kick.com/" target="_blank">kick.com</a>
+      <div class="stat-card">
+        <div class="stat-number" id="total-views">0</div>
+        <div class="stat-label">Reproducciones Totales</div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Últimos Videos -->
-  <section class="section">
-    <h2>Últimos Videos</h2>
+  <!-- Sección de Clips -->
+  <section class="section clips-section" id="clips">
+    <h2 class="section-title">CLIPS DESTACADOS</h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.7);">Los mejores momentos de la comunidad gamer</p>
+    
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="clip-card">
+            <div class="clip-thumbnail">
+              <img src="https://i.imgur.com/9zJgW7D.jpg" alt="Clip de Fortnite">
+              <div class="play-icon">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="clip-info">
+              <h3>Victoria épica en Fortnite</h3>
+              <div class="clip-meta">
+                <span><i class="fas fa-eye"></i> 15.2k</span>
+                <span><i class="far fa-clock"></i> 2 días</span>
+              </div>
+              <div class="clip-author">
+                <img src="https://i.imgur.com/8XJQZbP.jpg" alt="Autor del clip">
+                <span>@sevec_pro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="clip-card">
+            <div class="clip-thumbnail">
+              <img src="https://i.imgur.com/JXj4P1x.jpg" alt="Clip de Valorant">
+              <div class="play-icon">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="clip-info">
+              <h3>Ace en Valorant</h3>
+              <div class="clip-meta">
+                <span><i class="fas fa-eye"></i> 22.7k</span>
+                <span><i class="far fa-clock"></i> 1 semana</span>
+              </div>
+              <div class="clip-author">
+                <img src="https://i.imgur.com/5zJgW7D.jpg" alt="Autor del clip">
+                <span>@gamefan123</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="clip-card">
+            <div class="clip-thumbnail">
+              <img src="https://i.imgur.com/TWq1Wbc.jpg" alt="Clip de Minecraft">
+              <div class="play-icon">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="clip-info">
+              <h3>Construcción increíble en Minecraft</h3>
+              <div class="clip-meta">
+                <span><i class="fas fa-eye"></i> 8.5k</span>
+                <span><i class="far fa-clock"></i> 3 días</span>
+              </div>
+              <div class="clip-author">
+                <img src="https://i.imgur.com/JXj4P1x.jpg" alt="Autor del clip">
+                <span>@buildmaster</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="clip-card">
+            <div class="clip-thumbnail">
+              <img src="https://i.imgur.com/8XJQZbP.jpg" alt="Clip de Apex Legends">
+              <div class="play-icon">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="clip-info">
+              <h3>Rescate épico en Apex Legends</h3>
+              <div class="clip-meta">
+                <span><i class="fas fa-eye"></i> 12.3k</span>
+                <span><i class="far fa-clock"></i> 5 días</span>
+              </div>
+              <div class="clip-author">
+                <img src="https://i.imgur.com/TWq1Wbc.jpg" alt="Autor del clip">
+                <span>@apexplayer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#" class="btn btn-secondary" style="display: inline-flex; align-items: center;">
+        <i class="fas fa-plus"></i> Ver más clips
+      </a>
+    </div>
+  </section>
+
+  <!-- Sección de Búsqueda de Juegos -->
+  <section class="section game-search-section" id="juegos">
+    <h2 class="section-title">ENCICLOPEDIA GAMER</h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.7);">Busca información sobre cualquier juego</p>
+    
+    <div class="search-container">
+      <input type="text" class="search-input" id="gameSearch" placeholder="Buscar juego... (ej. Fortnite, GTA V, Minecraft)">
+      <button class="search-btn" id="searchBtn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    
+    <div class="loading-spinner" id="loadingSpinner"></div>
+    
+    <div class="game-info-container" id="gameInfoContainer">
+      <div class="game-header">
+        <img src="" alt="Portada del juego" class="game-cover" id="gameCover">
+        <div class="game-details">
+          <h2 id="gameTitle">Título del Juego</h2>
+          <div class="game-meta">
+            <span id="gameGenre">Género</span>
+            <span id="gamePlatform">Plataforma</span>
+            <span id="gameYear">Año</span>
+            <span id="gameRating">Rating</span>
+          </div>
+          <p class="game-description" id="gameDescription">Descripción del juego...</p>
+          <div>
+            <a href="#" class="btn btn-primary" id="gameStoreLink" target="_blank">
+              <i class="fas fa-shopping-cart"></i> Comprar
+            </a>
+            <a href="#" class="btn btn-secondary" id="gameTrailerLink" target="_blank">
+              <i class="fas fa-play"></i> Ver Tráiler
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-videos">
+        <h3><i class="fab fa-youtube"></i> Vídeos Relacionados</h3>
+        <div class="video-grid" id="gameVideosGrid">
+          <!-- Los vídeos se cargarán aquí dinámicamente -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid" id="popularGamesGrid">
+      <div class="card" onclick="searchGame('Fortnite')">
+        <img src="https://i.imgur.com/JXj4P1x.png" alt="Fortnite">
+        <h3>Fortnite</h3>
+        <p>Battle Royale de Epic Games</p>
+        <a href="#">Buscar info</a>
+      </div>
+      <div class="card" onclick="searchGame('Valorant')">
+        <img src="https://i.imgur.com/5zJgW7D.png" alt="Valorant">
+        <h3>Valorant</h3>
+        <p>FPS táctico de Riot Games</p>
+        <a href="#">Buscar info</a>
+      </div>
+      <div class="card" onclick="searchGame('Minecraft')">
+        <img src="https://i.imgur.com/8XJQZbP.png" alt="Minecraft">
+        <h3>Minecraft</h3>
+        <p>Sandbox de Mojang</p>
+        <a href="#">Buscar info</a>
+      </div>
+      <div class="card" onclick="searchGame('League of Legends')">
+        <img src="https://i.imgur.com/TWq1Wbc.jpg" alt="League of Legends">
+        <h3>League of Legends</h3>
+        <p>MOBA de Riot Games</p>
+        <a href="#">Buscar info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Redes y Plataformas -->
+  <section class="section" id="redes">
+    <h2 class="section-title">REDES Y PLATAFORMAS</h2>
     <div class="grid">
       <div class="card">
-        <h3>YouTube</h3>
-        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=PGSEVECHASO"></iframe>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg" alt="Twitch">
+        <h3>Twitch</h3>
+        <p>Directos diarios de gaming</p>
+        <a href="https://twitch.tv/sevec_pro" target="_blank">@sevec_pro</a>
       </div>
       <div class="card">
-        <h3>TikTok</h3>
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@yoichi_sano" data-unique-id="yoichi_sano" style="max-width: 100%;">
-          <section>Loading TikTok...</section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+        <h3>YouTube</h3>
+        <p>Clips y gameplays</p>
+        <a href="https://youtube.com/@PGSEVECHASO" target="_blank">PG: SEVECHASO</a>
       </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok">
+        <h3>TikTok</h3>
+        <p>Clips virales</p>
+        <a href="https://www.tiktok.com/@yoichi_sano" target="_blank">@yoichi_sano</a>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
+        <h3>Steam</h3>
+        <p>Juegos y comunidad</p>
+        <a href="https://store.steampowered.com/" target="_blank">Perfil de Steam</a>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games">
+        <h3>Epic Games</h3>
+        <p>Juegos gratis</p>
+        <a href="https://www.epicgames.com/store/" target="_blank">Tienda Epic</a>
+      </div>
+      <div class="card">
+        <img src="https://seeklogo.com/images/K/kick-logo-22BFD27E9D-seeklogo.com.png" alt="Kick">
+        <h3>Kick</h3>
+        <p>Streaming alternativo</p>
+        <a href="https://kick.com/" target="_blank">Perfil en Kick</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Eventos -->
+  <section class="section events-section" id="eventos">
+    <h2 class="section-title">PRÓXIMOS EVENTOS</h2>
+    
+    <div class="event-card">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i> Viernes, 15 de Julio - 20:00
+      </div>
+      <h3 class="event-title">Torneo de Fortnite</h3>
+      <p class="event-desc">Participa en nuestro torneo semanal de Fortnite con premios en efectivo para los 3 primeros lugares.</p>
+      <div class="event-meta">
+        <span><i class="fas fa-users"></i> 32 participantes</span>
+        <span><i class="fas fa-trophy"></i> $500 en premios</span>
+        <span><i class="fas fa-microphone"></i> Comentarista invitado</span>
+      </div>
+    </div>
+    
+    <div class="event-card">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i> Sábado, 23 de Julio - 18:00
+      </div>
+      <h3 class="event-title">Maratón de Juegos de Terror</h3>
+      <p class="event-desc">Jugaremos los juegos de terror más populares durante 6 horas seguidas. ¡Acompañanos si te atreves!</p>
+      <div class="event-meta">
+        <span><i class="fas fa-gamepad"></i> Resident Evil, Outlast, Phasmophobia</span>
+        <span><i class="fas fa-user-friends"></i> Invitados especiales</span>
+      </div>
+    </div>
+    
+    <div class="event-card">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i> Domingo, 31 de Julio - Todo el día
+      </div>
+      <h3 class="event-title">Día de la Comunidad</h3>
+      <p class="event-desc">Celebración especial con juegos sugeridos por la comunidad, sorteos y muchas sorpresas.</p>
+      <div class="event-meta">
+        <span><i class="fas fa-gift"></i> Sorteos cada hora</span>
+        <span><i class="fas fa-hands-helping"></i> Juegos elegidos por votación</span>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#" class="btn btn-primary">
+        <i class="fas fa-calendar-check"></i> Ver Calendario Completo
+      </a>
     </div>
   </section>
 
   <!-- Anuncio inferior -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-client="ca-pub-4797781361837050"
-       data-ad-slot="9624223435"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-4797781361837050"
+         data-ad-slot="9624223435"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">SEVECHASO</div>
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#clips">Clips</a>
+      <a href="#juegos">Info Juegos</a>
+      <a href="#redes">Redes</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#">Contacto</a>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+    </div>
+    <div class="social-links">
+      <a href="https://twitch.tv/sevec_pro" target="_blank"><i class="fab fa-twitch"></i></a>
+      <a href="https://youtube.com/@PGSEVECHASO" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@yoichi_sano" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://discord.gg/" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Sevechaso. Todos los derechos reservados. 🎮 Diseño gamer, clips y comunidad.
+    </div>
+  </footer>
+
+  <!-- Botón volver arriba -->
+  <button class="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
+    // Animación de carga
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.querySelector('.loader').classList.add('hidden');
+      }, 1500);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      this.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Botón volver arriba
+    window.addEventListener('scroll', function() {
+      const btnTop = document.querySelector('.btn-top');
+      if (window.pageYOffset > 300) {
+        btnTop.classList.add('active');
+      } else {
+        btnTop.classList.remove('active');
+      }
+    });
+
+    // Cursor personalizado
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 100);
+    });
+    
+    document.querySelectorAll('a, button, .card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.5)';
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
+
+    // Efecto de partículas
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ff2d75"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffaa",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Animación de contadores
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+      
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 1);
+        } else {
+          counter.innerText = target;
+        }
+      });
+    }
+    
+    // Simular datos de estadísticas (reemplazar con datos reales)
+    function initStats() {
+      document.getElementById('twitch-followers').setAttribute('data-target', '1250');
+      document.getElementById('youtube-subs').setAttribute('data-target', '3400');
+      document.getElementById('tiktok-followers').setAttribute('data-target', '8900');
+      document.getElementById('total-views').setAttribute('data-target', '150000');
+      
+      // Iniciar animación cuando la sección es visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.5});
+      
+      observer.observe(document.querySelector('.stats-container'));
+    }
+    
+    // Swiper para clips
+    const swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 20,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+
+    // Búsqueda de juegos con IA simulada
+    const gameSearch = document.getElementById('gameSearch');
+    const searchBtn = document.getElementById('searchBtn');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const gameInfoContainer = document.getElementById('gameInfoContainer');
+    const popularGamesGrid = document.getElementById('popularGamesGrid');
+    
+    // Base de datos simulada de juegos
+    const gamesDatabase = {
+      'fortnite': {
+        title: 'Fortnite',
+        genre: 'Battle Royale',
+        platform: 'Multiplataforma',
+        year: '2017',
+        rating: '4.5/5',
+        description: 'Fortnite es un juego de batalla real gratuito desarrollado por Epic Games. Los jugadores compiten en un mapa que se reduce progresivamente, buscando ser el último en pie. El juego también incluye un modo creativo y un modo de historia cooperativo llamado "Salvar el Mundo".',
+        cover: 'https://i.imgur.com/JXj4P1x.png',
+        storeLink: 'https://store.epicgames.com/es-ES/p/fortnite',
+        trailerLink: 'https://www.youtube.com/watch?v=WJW-bzXZM8M',
+        videos: [
+          {title: 'Gameplay actualizado', id: 'WJW-bzXZM8M'},
+          {title: 'Trucos y consejos', id: 'Zy3K-AbNqXk'},
+          {title: 'Mejores momentos', id: '2gUtfBmw86Y'}
+        ]
+      },
+      'valorant': {
+        title: 'Valorant',
+        genre: 'FPS Táctico',
+        platform: 'PC',
+        year: '2020',
+        rating: '4.3/5',
+        description: 'Valorant es un hero shooter en primera persona multijugador gratuito desarrollado por Riot Games. Los jugadores asumen el control de agentes, personajes que provienen de una gran cantidad de países y culturas de todo el mundo. En el modo de juego principal, los jugadores se unen al equipo atacante o defensor con cada equipo que tiene cinco jugadores.',
+        cover: 'https://i.imgur.com/5zJgW7D.png',
+        storeLink: 'https://playvalorant.com/',
+        trailerLink: 'https://www.youtube.com/watch?v=e_E9W2vsRbQ',
+        videos: [
+          {title: 'Guía para principiantes', id: 'e_E9W2vsRbQ'},
+          {title: 'Mejores jugadas', id: 'GbtZQNwY-4I'},
+          {title: 'Nuevo agente', id: 'h7MYJghRWt0'}
+        ]
+      },
+      'minecraft': {
+        title: 'Minecraft',
+        genre: 'Sandbox',
+        platform: 'Multiplataforma',
+        year: '2011',
+        rating: '4.8/5',
+        description: 'Minecraft es un juego de mundo abierto donde la exploración y las construcciones están determinadas por los jugadores. Puedes crear herramientas y edificios con bloques en un mundo 3D generado proceduralmente. El juego tiene varios modos, incluyendo supervivencia donde los jugadores deben adquirir recursos, creativo donde tienen recursos ilimitados, y aventura donde los jugadores pueden jugar mapas creados por otros.',
+        cover: 'https://i.imgur.com/8XJQZbP.png',
+        storeLink: 'https://www.minecraft.net/',
+        trailerLink: 'https://www.youtube.com/watch?v=MmB9b5njVbA',
+        videos: [
+          {title: 'Construcciones épicas', id: 'MmB9b5njVbA'},
+          {title: 'Guía de supervivencia', id: 'jMe3tdyjouQ'},
+          {title: 'Redstone avanzado', id: 'wZGPg6Ckp3Q'}
+        ]
+      },
+      'league of legends': {
+        title: 'League of Legends',
+        genre: 'MOBA',
+        platform: 'PC',
+        year: '2009',
+        rating: '4.2/5',
+        description: 'League of Legends es un juego de arena de batalla en línea multijugador (MOBA) desarrollado por Riot Games. En el juego, dos equipos de cinco jugadores compiten para destruir la base del equipo contrario, llamada Nexo, a través de un mapa llamado "La Grieta del Invocador". Los jugadores controlan un personaje llamado "campeón" con habilidades únicas.',
+        cover: 'https://i.imgur.com/TWq1Wbc.jpg',
+        storeLink: 'https://www.leagueoflegends.com/',
+        trailerLink: 'https://www.youtube.com/watch?v=vzHrjOMfHPY',
+        videos: [
+          {title: 'Guía de campeones', id: 'vzHrjOMfHPY'},
+          {title: 'Jugadas profesionales', id: '3gXeD8tbs1w'},
+          {title: 'Nuevas actualizaciones', id: 'cXZq1hyU8hs'}
+        ]
+      }
+    };
+    
+    function searchGame(gameName) {
+      const searchTerm = gameName.toLowerCase();
+      loadingSpinner.style.display = 'block';
+      gameInfoContainer.style.display = 'none';
+      popularGamesGrid.style.display = 'none';
+      
+      // Simular búsqueda con IA (en realidad sería una llamada API)
+      setTimeout(() => {
+        const gameData = gamesDatabase[searchTerm];
+        
+        if (gameData) {
+          // Actualizar la UI con los datos del juego
+          document.getElementById('gameTitle').textContent = gameData.title;
+          document.getElementById('gameGenre').textContent = gameData.genre;
+          document.getElementById('gamePlatform').textContent = gameData.platform;
+          document.getElementById('gameYear').textContent = gameData.year;
+          document.getElementById('gameRating').textContent = gameData.rating;
+          document.getElementById('gameDescription').textContent = gameData.description;
+          document.getElementById('gameCover').src = gameData.cover;
+          document.getElementById('gameStoreLink').href = gameData.storeLink;
+          document.getElementById('gameTrailerLink').href = gameData.trailerLink;
+          
+          // Actualizar videos
+          const videosGrid = document.getElementById('gameVideosGrid');
+          videosGrid.innerHTML = '';
+          
+          gameData.videos.forEach(video => {
+            const videoElement = document.createElement('div');
+            videoElement.className = 'clip-card';
+            videoElement.innerHTML = `
+              <div class="clip-thumbnail">
+                <img src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg" alt="${video.title}">
+                <div class="play-icon">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="clip-info">
+                <h3>${video.title}</h3>
+                <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" class="btn btn-secondary" style="margin-top: 0.5rem;">
+                  <i class="fab fa-youtube"></i> Ver en YouTube
+                </a>
+              </div>
+            `;
+            videosGrid.appendChild(videoElement);
+          });
+          
+          gameInfoContainer.style.display = 'block';
+        } else {
+          // Juego no encontrado
+          gameInfoContainer.style.display = 'block';
+          gameInfoContainer.innerHTML = `
+            <div style="text-align: center; padding: 2rem;">
+              <h3 style="color: var(--primary); margin-bottom: 1rem;">Juego no encontrado</h3>
+              <p>Lo sentimos, no tenemos información sobre "${gameName}". Prueba con otro juego popular.</p>
+              <button onclick="resetGameSearch()" class="btn btn-primary" style="margin-top: 1rem;">
+                <i class="fas fa-arrow-left"></i> Volver
+              </button>
+            </div>
+          `;
+        }
+        
+        loadingSpinner.style.display = 'none';
+      }, 1500);
+    }
+    
+    function resetGameSearch() {
+      gameInfoContainer.style.display = 'none';
+      popularGamesGrid.style.display = 'grid';
+      gameSearch.value = '';
+      
+      // Restaurar el contenedor original
+      gameInfoContainer.innerHTML = `
+        <div class="game-header">
+          <img src="" alt="Portada del juego" class="game-cover" id="gameCover">
+          <div class="game-details">
+            <h2 id="gameTitle">Título del Juego</h2>
+            <div class="game-meta">
+              <span id="gameGenre">Género</span>
+              <span id="gamePlatform">Plataforma</span>
+              <span id="gameYear">Año</span>
+              <span id="gameRating">Rating</span>
+            </div>
+            <p class="game-description" id="gameDescription">Descripción del juego...</p>
+            <div>
+              <a href="#" class="btn btn-primary" id="gameStoreLink" target="_blank">
+                <i class="fas fa-shopping-cart"></i> Comprar
+              </a>
+              <a href="#" class="btn btn-secondary" id="gameTrailerLink" target="_blank">
+                <i class="fas fa-play"></i> Ver Tráiler
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="game-videos">
+          <h3><i class="fab fa-youtube"></i> Vídeos Relacionados</h3>
+          <div class="video-grid" id="gameVideosGrid">
+            <!-- Los vídeos se cargarán aquí dinámicamente -->
+          </div>
+        </div>
+      `;
+    }
+    
+    searchBtn.addEventListener('click', () => {
+      if (gameSearch.value.trim() !== '') {
+        searchGame(gameSearch.value);
+      }
+    });
+    
+    gameSearch.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && gameSearch.value.trim() !== '') {
+        searchGame(gameSearch.value);
+      }
+    });
+
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      initStats();
+      
+      // Smooth scroll para los enlaces
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Cerrar menú móvil si está abierto
+            if (navLinks.classList.contains('active')) {
+              navLinks.classList.remove('active');
+              mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          }
+        });
+      });
+    });
   </script>
 
-  <footer>
-    &copy; 2025 Sevechaso. Todos los derechos reservados. 🎮 Diseño gamer, clips y comunidad.
-  </footer>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4797781361837050" crossorigin="anonymous"></script>
 </body>
 </html>
