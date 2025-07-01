@@ -1,68 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevechaso | Gaming Links</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google AdSense (opcional) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TU_ID"></script>
-    <style>
-        /* Estilos básicos (morado/verde/azul/rojo) */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a2e; /* Fondo oscuro gamer */
-            color: white;
-            margin: 0;
-        }
-        header {
-            background: linear-gradient(90deg, #6a00ff, #00ff88);
-            padding: 2rem;
-            text-align: center;
-        }
-        .gaming-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            padding: 2rem;
-        }
-        .game-card {
-            background: #16213e;
-            border-radius: 10px;
-            padding: 1rem;
-            transition: transform 0.3s;
-        }
-        .game-card:hover {
-            transform: scale(1.05);
-            border: 2px solid #ff2d75;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sevechaso | Zona Gamer Total</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1a1a2e;
+      color: white;
+      margin: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #6a00ff, #00ff88);
+      padding: 2rem;
+      text-align: center;
+    }
+    .gaming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .game-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s;
+    }
+    .game-card:hover {
+      transform: scale(1.05);
+      border: 2px solid #ff2d75;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .img-center {
+      text-align: center;
+      margin: 2rem;
+    }
+    .img-center img {
+      border-radius: 10px;
+      max-width: 90%;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🎮 SEVECHASO 🎮</h1>
-        <p>Los mejores enlaces gaming, actualizados automáticamente</p>
-    </header>
+  <header>
+    <h1>🎮 SEVECHASO 🎮</h1>
+    <p>Zona gamer con enlaces, noticias, juegos y más</p>
+  </header>
 
-    <div class="gaming-grid">
-        <!-- Sección Twitch -->
-        <div class="game-card" style="border-left: 5px solid #9147ff;">
-            <h2>🔴 Twitch</h2>
-            <a href="https://twitch.tv/sevec_pro" target="_blank">sevec_pro</a>
-        </div>
-
-        <!-- Sección YouTube -->
-        <div class="game-card" style="border-left: 5px solid #ff0000;">
-            <h2>▶ YouTube</h2>
-            <a href="https://youtube.com/SEVECHASO" target="_blank">PG: SEVECHASO</a>
-        </div>
-
-        <!-- Añade más secciones aquí -->
+  <div class="gaming-grid">
+    <!-- Twitch -->
+    <div class="game-card" style="border-left: 5px solid #9147ff;">
+      <h2>🔴 Twitch</h2>
+      <a href="https://twitch.tv/sevec_pro" target="_blank">sevec_pro</a><br/>
+      <a href="https://www.twitch.tv/directory" target="_blank">Ver streamers</a>
     </div>
 
-    <!-- Imagen Splatoon 3 -->
-    <div style="text-align: center; margin: 2rem;">
-        <img src="assets/splatoon3.jpg" alt="Splatoon 3" width="300" style="border-radius: 10px;">
+    <!-- YouTube -->
+    <div class="game-card" style="border-left: 5px solid #ff0000;">
+      <h2>▶ YouTube Gaming</h2>
+      <a href="https://www.youtube.com/@PGSEVECHASO" target="_blank">PG: SEVECHASO</a><br/>
+      <a href="https://www.youtube.com/gaming" target="_blank">Tendencias Gaming</a>
     </div>
+
+    <!-- Steam -->
+    <div class="game-card" style="border-left: 5px solid #00adee;">
+      <h2>🎮 Steam</h2>
+      <a href="https://store.steampowered.com/" target="_blank">Tienda Steam</a>
+    </div>
+
+    <!-- Epic Games -->
+    <div class="game-card" style="border-left: 5px solid #313131;">
+      <h2>🕹️ Epic Games</h2>
+      <a href="https://www.epicgames.com/store/es-ES/" target="_blank">Tienda Epic</a>
+    </div>
+
+    <!-- Nintendo -->
+    <div class="game-card" style="border-left: 5px solid #e60012;">
+      <h2>🟥 Nintendo</h2>
+      <a href="https://www.nintendo.com/es-mx/store/" target="_blank">Tienda Nintendo</a>
+    </div>
+
+    <!-- Xbox -->
+    <div class="game-card" style="border-left: 5px solid #107c10;">
+      <h2>🟩 Xbox</h2>
+      <a href="https://www.xbox.com/es-MX/games" target="_blank">Juegos Xbox</a>
+    </div>
+
+    <!-- PlayStation -->
+    <div class="game-card" style="border-left: 5px solid #003791;">
+      <h2>🟦 PlayStation</h2>
+      <a href="https://store.playstation.com/" target="_blank">Tienda PS</a>
+    </div>
+
+    <!-- Humble Bundle -->
+    <div class="game-card" style="border-left: 5px solid #ff7e00;">
+      <h2>💰 Humble Bundle</h2>
+      <a href="https://www.humblebundle.com/store" target="_blank">Ofertas de juegos</a>
+    </div>
+
+    <!-- GOG -->
+    <div class="game-card" style="border-left: 5px solid #8633ff;">
+      <h2>📦 GOG</h2>
+      <a href="https://www.gog.com/" target="_blank">Juegos DRM-free</a>
+    </div>
+
+    <!-- Green Man Gaming -->
+    <div class="game-card" style="border-left: 5px solid #00ff00;">
+      <h2>💸 Green Man Gaming</h2>
+      <a href="https://www.greenmangaming.com/" target="_blank">Descuentos</a>
+    </div>
+
+    <!-- Kick -->
+    <div class="game-card" style="border-left: 5px solid #33ff00;">
+      <h2>🟢 Kick</h2>
+      <a href="https://kick.com/" target="_blank">Streamers en vivo</a>
+    </div>
+
+    <!-- Noticias -->
+    <div class="game-card" style="border-left: 5px solid #ffff00;">
+      <h2>📰 Noticias Gamer</h2>
+      <a href="https://es.ign.com/" target="_blank">IGN España</a><br/>
+      <a href="https://vandal.elespanol.com/" target="_blank">Vandal</a>
+    </div>
+
+    <!-- Nube -->
+    <div class="game-card" style="border-left: 5px solid #00d4ff;">
+      <h2>☁️ Gaming en la nube</h2>
+      <a href="https://www.nvidia.com/es-la/geforce-now/" target="_blank">GeForce Now</a><br/>
+      <a href="https://www.xbox.com/es-MX/play" target="_blank">Xbox Cloud</a>
+    </div>
+
+    <!-- Juegos gratis -->
+    <div class="game-card" style="border-left: 5px solid #ff69b4;">
+      <h2>🎲 Juega ahora</h2>
+      <a href="https://www.minijuegos.com/" target="_blank">Minijuegos</a><br/>
+      <a href="https://poki.com/es" target="_blank">Poki</a>
+    </div>
+  </div>
+
+  <!-- Imagen Splatoon 3 -->
+  <div class="img-center">
+    <img src="assets/splatoon3.jpg" alt="Splatoon 3" width="300" />
+  </div>
 </body>
 </html>
+
