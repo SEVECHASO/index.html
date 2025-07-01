@@ -1,364 +1,223 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sevechaso - Web Gamer Completa</title>
-<style>
-  /* Reset básico */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #111; color: #eee;
-    --color-primary: #ff3cac;
-    --color-secondary: #784ba0;
-  }
-  header {
-    position: fixed; top: 0; left: 0; right: 0;
-    height: 60px; background: #222;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 1rem;
-    z-index: 1000;
-    box-shadow: 0 2px 6px #000a;
-  }
-  header h1 {
-    font-weight: 700; font-size: 1.4rem; color: var(--color-primary);
-    user-select: none;
-  }
-  nav {
-    display: flex; gap: 1.2rem;
-  }
-  nav button {
-    background: none; border: none; color: #eee; font-weight: 600;
-    cursor: pointer; font-size: 1rem; padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-  }
-  nav button:hover, nav button.active {
-    background: var(--color-primary);
-    color: #111;
-  }
-  main {
-    padding-top: 60px;
-    max-width: 900px;
-    margin: 0 auto;
-    min-height: calc(100vh - 60px);
-  }
-  section.page {
-    display: none;
-    padding: 1rem 1.2rem 3rem;
-    overflow-y: auto;
-    max-height: calc(100vh - 60px);
-    scrollbar-width: thin; scrollbar-color: var(--color-primary) #222;
-  }
-  section.page.active {
-    display: block;
-  }
-  section.page::-webkit-scrollbar {
-    width: 8px;
-  }
-  section.page::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary);
-    border-radius: 4px;
-  }
-
-  /* Contenido de Inicio */
-  .inicio-seccion {
-    margin-bottom: 3rem;
-  }
-  .inicio-seccion h2 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-  .noticias, .destacados, .redes {
-    background: #222;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  .noticia-item, .video-item, .evento-item {
-    margin-bottom: 1rem;
-    padding: 0.8rem;
-    background: #333;
-    border-radius: 6px;
-    transition: background 0.3s;
-  }
-  .noticia-item:hover, .video-item:hover, .evento-item:hover {
-    background: var(--color-primary);
-    color: #111;
-    cursor: pointer;
-  }
-
-  /* Videos */
-  .videos-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-height: 70vh;
-    overflow-y: auto;
-  }
-  .video-item iframe {
-    width: 100%; height: 180px;
-    border-radius: 8px;
-  }
-
-  /* Comunidad */
-  .comunidad-section {
-    max-height: 70vh;
-    overflow-y: auto;
-  }
-  .foro, .eventos {
-    background: #222;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border-radius: 10px;
-  }
-  .foro-post {
-    margin-bottom: 1rem;
-    background: #333;
-    padding: 0.8rem;
-    border-radius: 6px;
-  }
-  .foro-post:hover {
-    background: var(--color-primary);
-    color: #111;
-    cursor: pointer;
-  }
-
-  /* Contacto */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    max-width: 400px;
-  }
-  label {
-    font-weight: 600;
-  }
-  input, textarea {
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: none;
-    font-size: 1rem;
-  }
-  input:focus, textarea:focus {
-    outline: 2px solid var(--color-primary);
-  }
-  button[type="submit"] {
-    background: var(--color-primary);
-    border: none;
-    color: #111;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: background 0.3s ease;
-  }
-  button[type="submit"]:hover {
-    background: var(--color-secondary);
-    color: #eee;
-  }
-  .faq {
-    margin-top: 2rem;
-    background: #222;
-    border-radius: 10px;
-    padding: 1rem;
-    max-width: 400px;
-  }
-  .faq-item {
-    margin-bottom: 1rem;
-  }
-  .faq-item h4 {
-    margin: 0 0 0.3rem 0;
-    color: var(--color-primary);
-  }
-
-  /* Footer */
-  footer {
-    margin-top: 3rem;
-    padding: 1rem;
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-    border-top: 1px solid #222;
-  }
-  footer a {
-    color: var(--color-primary);
-    text-decoration: none;
-    margin: 0 0.5rem;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    main {
-      padding: 60px 0.8rem 3rem;
-      max-width: 100%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEVECHASO | Zona Gamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    form, .faq {
-      max-width: 100%;
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+      background: url('https://i.imgur.com/nTz2Z4C.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
     }
-  }
-</style>
+
+    header {
+      background: rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff2d75;
+    }
+
+    nav {
+      background: rgba(0,0,0,0.9);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      background: rgba(0,0,0,0.6);
+      margin: 2rem;
+      border-radius: 1rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #00ffcc;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .videos-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    iframe {
+      width: 300px;
+      height: 530px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff2d75;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      z-index: 10000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.9);
+      font-size: 0.9rem;
+      color: #ffffff88;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Sevechaso</h1>
-  <nav role="navigation" aria-label="Menú principal">
-    <button class="nav-btn active" data-target="inicio" aria-current="page">Inicio</button>
-    <button class="nav-btn" data-target="videos">Videos</button>
-    <button class="nav-btn" data-target="comunidad">Comunidad</button>
-    <button class="nav-btn" data-target="contacto">Contacto</button>
+
+  <header>
+    <h1>🎮 SEVECHASO 🎮</h1>
+    <p>Zona gamer definitiva con enlaces, clips y más</p>
+  </header>
+
+  <nav>
+    <a href="#enlaces">Plataformas</a>
+    <a href="#videos">Clips</a>
+    <a href="#contacto">Contacto</a>
   </nav>
-</header>
 
-<main>
-  <section id="inicio" class="page active" tabindex="0" aria-label="Página de inicio">
-    <div class="inicio-seccion noticias" aria-label="Noticias recientes">
-      <h2>Noticias Recientes</h2>
-      <div class="noticia-item" tabindex="0">Lanzamiento del nuevo torneo online — 5 Julio 2025</div>
-      <div class="noticia-item" tabindex="0">Actualización de SEVECHASO con nuevas funciones</div>
-      <div class="noticia-item" tabindex="0">Colaboración con Streamers y Youtubers destacados</div>
-    </div>
-    <div class="inicio-seccion destacados" aria-label="Videos destacados">
-      <h2>Videos Destacados</h2>
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video destacado 1" loading="lazy" allowfullscreen></iframe>
+  <!-- Enlaces -->
+  <section id="enlaces">
+    <h2>🌐 Plataformas</h2>
+    <div class="links-grid">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg" alt="Twitch">
+        <p><a href="https://twitch.tv/sevec_pro" target="_blank">Twitch: sevec_pro</a></p>
       </div>
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video destacado 2" loading="lazy" allowfullscreen></iframe>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+        <p><a href="https://youtube.com/@PGSEVECHASO" target="_blank">YouTube: PG SEVECHASO</a></p>
       </div>
-    </div>
-    <div class="inicio-seccion redes" aria-label="Enlaces a redes sociales">
-      <h2>Encuéntrame en redes</h2>
-      <ul>
-        <li><a href="https://www.twitch.tv/sevec_pro" target="_blank" rel="noopener noreferrer">Twitch - sevec_pro</a></li>
-        <li><a href="https://www.youtube.com/@SEVECHASO" target="_blank" rel="noopener noreferrer">YouTube - SEVECHASO</a></li>
-        <li><a href="https://www.tiktok.com/@yoichi_sano" target="_blank" rel="noopener noreferrer">TikTok - yoichi_sano</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="videos" class="page" tabindex="0" aria-label="Videos">
-    <h2>Videos recientes</h2>
-    <div class="videos-list" role="list">
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/3tmd-ClpJxA" title="Video 1" loading="lazy" allowfullscreen></iframe>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok">
+        <p><a href="https://www.tiktok.com/@yoichi_sano" target="_blank">TikTok: @yoichi_sano</a></p>
       </div>
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/L_jWHffIx5E" title="Video 2" loading="lazy" allowfullscreen></iframe>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
+        <p><a href="https://store.steampowered.com/" target="_blank">Steam</a></p>
       </div>
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/V-_O7nl0Ii0" title="Video 3" loading="lazy" allowfullscreen></iframe>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games">
+        <p><a href="https://www.epicgames.com/store/" target="_blank">Epic Games</a></p>
       </div>
-      <div class="video-item" tabindex="0">
-        <iframe src="https://www.youtube.com/embed/tAGnKpE4NCI" title="Video 4" loading="lazy" allowfullscreen></iframe>
+      <div class="card">
+        <img src="https://seeklogo.com/images/K/kick-logo-22BFD27E9D-seeklogo.com.png" alt="Kick">
+        <p><a href="https://kick.com/" target="_blank">Kick</a></p>
       </div>
-      <!-- Puedes agregar más videos aquí -->
     </div>
   </section>
 
-  <section id="comunidad" class="page" tabindex="0" aria-label="Comunidad">
-    <h2>Comunidad Sevechaso</h2>
-    <div class="foro" aria-label="Foro de discusión">
-      <h3>Foro</h3>
-      <div class="foro-post" tabindex="0">
-        <strong>Usuario1:</strong> ¿Cuándo es el próximo torneo? 
-      </div>
-      <div class="foro-post" tabindex="0">
-        <strong>Usuario2:</strong> ¿Algún streamer para recomendar? 
-      </div>
-      <div class="foro-post" tabindex="0">
-        <strong>Usuario3:</strong> ¿Qué juegos quieren ver en el canal? 
-      </div>
-    </div>
-    <div class="eventos" aria-label="Eventos próximos">
-      <h3>Eventos Próximos</h3>
-      <div class="evento-item" tabindex="0">Torneo Online de Julio - Inscripciones abiertas</div>
-      <div class="evento-item" tabindex="0">Stream en vivo con invitado especial - 10 Julio 2025</div>
-      <div class="evento-item" tabindex="0">Q&A y giveaways - 20 Julio 2025</div>
+  <!-- Clips -->
+  <section id="videos">
+    <h2>🔥 Clips destacados</h2>
+    <div class="videos-container">
+      <!-- YouTube clips -->
+      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=PGSEVECHASO" allowfullscreen></iframe>
+
+      <!-- TikTok clips (reemplazar con ID reales si TikTok permite) -->
+      <iframe src="https://www.tiktok.com/embed/v2/7275500006583393541" allowfullscreen></iframe>
+      <iframe src="https://www.tiktok.com/embed/v2/7275501687648552224" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section id="contacto" class="page" tabindex="0" aria-label="Contacto">
-    <h2>Contacto</h2>
-    <form id="contactForm" novalidate aria-describedby="formDescription">
-      <p id="formDescription">Envía tus dudas o sugerencias</p>
-      <label for="name">Nombre</label>
-      <input type="text" id="name" name="name" placeholder="Tu nombre" required minlength="3" aria-required="true" />
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@correo.com" required aria-required="true" />
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" placeholder="Escribe aquí..." rows="5" required aria-required="true"></textarea>
-      <button type="submit" aria-label="Enviar formulario">Enviar</button>
-      <p id="formResponse" role="alert" style="margin-top: 1rem;"></p>
-    </form>
-
-    <div class="faq" aria-label="Preguntas frecuentes">
-      <h3>Preguntas frecuentes</h3>
-      <div class="faq-item" tabindex="0">
-        <h4>¿Cómo participar en el torneo?</h4>
-        <p>Solo necesitas registrarte en la sección eventos y seguir las instrucciones.</p>
-      </div>
-      <div class="faq-item" tabindex="0">
-        <h4>¿Dónde puedo ver los videos anteriores?</h4>
-        <p>En la sección Videos, encontrarás todos los videos subidos al canal.</p>
-      </div>
-      <div class="faq-item" tabindex="0">
-        <h4>¿Puedo sugerir juegos para streaming?</h4>
-        <p>Claro, envía tus sugerencias por el formulario o participa en la comunidad.</p>
-      </div>
-    </div>
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>📬 Contacto</h2>
+    <p>¿Quieres colaborar o recomendar clips? Escríbeme por <a href="https://twitch.tv/sevec_pro" target="_blank">Twitch</a> o por redes.</p>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 Sevechaso | 
-  <a href="https://www.twitch.tv/sevec_pro" target="_blank" rel="noopener noreferrer">Twitch</a> | 
-  <a href="https://www.youtube.com/@SEVECHASO" target="_blank" rel="noopener noreferrer">YouTube</a> | 
-  <a href="https://www.tiktok.com/@yoichi_sano" target="_blank" rel="noopener noreferrer">TikTok</a> | 
-  <a href="#">Aviso legal</a>
-</footer>
+  <!-- Anuncio AdSense -->
+  <section>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-4797781361837050"
+         data-ad-slot="9624223435"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </section>
 
-<script>
-  const navButtons = document.querySelectorAll('nav .nav-btn');
-  const pages = document.querySelectorAll('section.page');
+  <button onclick="scrollToTop()" class="scroll-top" id="scrollTopBtn">⬆️</button>
 
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      navButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  <footer>
+    &copy; 2025 SEVECHASO. Todo el contenido gamer organizado y listo para ti.
+  </footer>
 
-      const target = btn.dataset.target;
-      pages.forEach(page => {
-        if(page.id === target) {
-          page.classList.add('active');
-          page.focus();
-        } else {
-          page.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // Form submit simple mock
-  const form = document.getElementById('contactForm');
-  const response = document.getElementById('formResponse');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if(form.checkValidity()) {
-      response.textContent = 'Gracias por tu mensaje. ¡Responderemos pronto!';
-      form.reset();
-    } else {
-      response.textContent = 'Por favor, completa todos los campos correctamente.';
+  <script>
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  });
-</script>
+
+    // Mostrar botón
+    window.onscroll = () => {
+      document.getElementById("scrollTopBtn").style.display = window.scrollY > 300 ? "block" : "none";
+    }
+  </script>
 </body>
 </html>
-
