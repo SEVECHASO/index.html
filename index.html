@@ -2,18 +2,68 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sevechaso | Zona Gamer</title>
-  
-  <!-- Estilos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Sevechaso | Zona Gamer Modernísima</title>
+
+  <!-- Fuentes modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+  <!-- Meta SEO -->
+  <meta name="description" content="Página oficial de Sevechaso: enlaces gamer, videos, streams, y novedades." />
+  <meta name="author" content="Ángel Padrón" />
+  <meta name="theme-color" content="#ff2d75" />
+
+  <!-- Adsense -->
+  <script data-ad-client="ca-pub-4797781361837050" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
   <style>
+    :root {
+      --color-primary: #ff2d75;
+      --color-primary-glow: #ff2d7588;
+      --color-bg-gradient1: #0f0c29;
+      --color-bg-gradient2: #302b63;
+      --color-bg-gradient3: #24243e;
+      --color-text-light: #ffffffcc;
+      --color-text: white;
+      --font-main: 'Poppins', sans-serif;
+      --font-code: 'Roboto Mono', monospace;
+      --shadow-glow: 0 0 15px var(--color-primary-glow);
+      --transition-speed: 0.3s;
+      --bg-dark: linear-gradient(135deg, var(--color-bg-gradient1), var(--color-bg-gradient2), var(--color-bg-gradient3));
+      --bg-light: linear-gradient(135deg, #f0f2f5, #e2e7eb, #d0d7de);
+      --text-dark: #fff;
+      --text-light: #222;
+      --card-bg-dark: rgba(10, 10, 10, 0.6);
+      --card-bg-light: rgba(255 255 255 / 0.9);
+      --card-text-dark: white;
+      --card-text-light: #111;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background: var(--bg-dark);
       background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
+      animation: gradientMove 20s ease infinite;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
     }
 
     @keyframes gradientMove {
@@ -23,162 +73,502 @@
     }
 
     header {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.6);
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.75);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      z-index: 10000;
+      transition: background 0.5s ease;
+    }
+    body.light header {
+      background: rgba(255 255 255 / 0.9);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     }
 
     h1 {
-      font-size: 3rem;
-      color: #ff2d75;
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--color-primary);
+      text-shadow: 0 0 8px var(--color-primary);
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      color: #ffffffcc;
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 600;
     }
 
+    nav button {
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    nav button::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    nav button:hover::after,
+    nav button.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    body.light nav button {
+      color: var(--text-light);
+    }
+
+    /* Dark mode toggle */
+    #darkModeToggle {
+      background: var(--color-primary);
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: var(--shadow-glow);
+      user-select: none;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    #darkModeToggle:hover {
+      background-color: #e6246f;
+      box-shadow: 0 0 20px #e6246f;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 1200px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    /* Páginas */
+    .page {
+      display: none;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    .page.active {
+      display: block;
+    }
+
+    /* Animaciones fadeInUp para scroll */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Grid para enlaces */
     .gaming-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.7rem;
+      margin-top: 1rem;
     }
 
+    /* Tarjetas */
     .game-card {
-      background: rgba(0,0,0,0.5);
-      border-radius: 10px;
-      padding: 1rem;
+      background: var(--card-bg-dark);
+      border-radius: 16px;
+      padding: 1.5rem 1.3rem;
+      color: var(--card-text-dark);
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.8);
       text-align: center;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      user-select: none;
+      border-left: 6px solid var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
     }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      border: 2px solid #00ff88;
+    body.light .game-card {
+      background: var(--card-bg-light);
+      color: var(--card-text-light);
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
     }
-
+    .game-card:hover,
+    .game-card:focus-visible {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 20px var(--color-primary);
+      outline: none;
+      border-left-color: #ff62a1;
+    }
     .game-card img {
-      width: 40px;
-      margin-bottom: 10px;
+      max-height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 3px var(--color-primary-glow));
+    }
+    .game-card h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      user-select: text;
+    }
+    .game-card a {
+      font-family: var(--font-code);
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--color-primary);
+      transition: color 0.3s ease;
+      word-break: break-word;
+      user-select: text;
+    }
+    .game-card a:hover,
+    .game-card a:focus-visible {
+      color: #ff62a1;
+      outline: none;
     }
 
+    /* Imagen destacada Splatoon */
+    .splatoon-img {
+      margin-top: 2.8rem;
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 18px;
+      filter: drop-shadow(0 0 10px var(--color-primary));
+      transition: filter 0.3s ease;
+      user-select: none;
+    }
+    .splatoon-img:hover {
+      filter: drop-shadow(0 0 25px #ff62a1);
+    }
+    body.light .splatoon-img:hover {
+      filter: drop-shadow(0 0 25px #e07eb0);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
+      padding: 1.4rem;
       font-size: 0.9rem;
-      color: #ffffff88;
-      padding: 2rem 1rem;
+      color: var(--color-primary);
+      text-shadow: 0 0 10px var(--color-primary-glow);
+      user-select: none;
+      border-top: 1px solid var(--color-primary);
     }
 
-    .splatoon-img {
-      display: block;
-      margin: 3rem auto 1rem;
-      width: 300px;
-      border-radius: 10px;
+    /* Scroll to top button */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--color-primary);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-glow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 100000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #scrollToTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollToTopBtn:hover {
+      background: #ff62a1;
+      box-shadow: 0 0 20px #ff62a1;
+    }
+
+    /* Galería de imágenes */
+    .gallery {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 1rem;
+      user-select: none;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      cursor: pointer;
+      filter: drop-shadow(0 0 10px var(--color-primary-glow));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 25px #ff62a1);
+    }
+    body.light .gallery img:hover {
+      filter: drop-shadow(0 0 25px #e07eb0);
+    }
+
+    /* Videos container */
+    .videos-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .video-frame {
+      border-radius: 16px;
+      box-shadow: 0 0 25px var(--color-primary-glow);
+      overflow: hidden;
+      flex: 1 1 320px;
+      max-width: 480px;
+      aspect-ratio: 16/9;
+      transition: box-shadow 0.3s ease;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-frame:hover {
+      box-shadow: 0 0 40px #ff62a1;
+    }
+    body.light .video-frame:hover {
+      box-shadow: 0 0 40px #e07eb0;
+    }
+
+    /* Adsense ad slot */
+    .adsense-slot {
+      margin: 2.5rem auto;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #darkModeToggle {
+        width: 100%;
+      }
     }
   </style>
-
-  <!-- AdSense Script Global -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4797781361837050"
-     crossorigin="anonymous"></script>
 </head>
-
 <body>
-
   <header>
-    <h1>🎮 SEVECHASO 🎮</h1>
-    <p class="subtitle">Enlaces gamer, videos y streams en un solo lugar</p>
+    <h1>Sevechaso</h1>
+    <nav role="navigation" aria-label="Navegación principal">
+      <button class="nav-btn active" data-target="home" aria-current="page">Inicio</button>
+      <button class="nav-btn" data-target="videos">Videos</button>
+      <button class="nav-btn" data-target="contacto">Contacto</button>
+    </nav>
+    <button id="darkModeToggle" aria-pressed="false" aria-label="Cambiar modo oscuro">Modo Oscuro</button>
   </header>
 
-  <!-- Anuncio 1 -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-client="ca-pub-4797781361837050"
-       data-ad-slot="9624223435"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+  <main>
+    <!-- PÁGINA INICIO -->
+    <section id="home" class="page active" tabindex="0" aria-label="Página de inicio">
+      <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 1rem;">Enlaces Gamers Destacados</h2>
+      <div class="gaming-grid" role="list">
+        <!-- Nintendo -->
+        <article class="game-card" tabindex="0" aria-label="Enlace a Nintendo" role="listitem" style="border-left-color:#e60012;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo_logo.svg" alt="Logo de Nintendo" />
+          <h3>Nintendo</h3>
+          <a href="https://www.nintendo.com/" target="_blank" rel="noopener noreferrer" style="color:#e60012;">nintendo.com</a>
+        </article>
+        <!-- Roblox -->
+        <article class="game-card" tabindex="0" aria-label="Enlace a Roblox" role="listitem" style="border-left-color:#ff0000;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_logo_2022.svg" alt="Logo de Roblox" />
+          <h3>Roblox</h3>
+          <a href="https://www.roblox.com/" target="_blank" rel="noopener noreferrer" style="color:#ff0000;">roblox.com</a>
+        </article>
+      </div>
+
+      <img
+        src="https://cdn2.unrealengine.com/egs-splatoon3-nintendoswitch-1-1920x1080-3ed4b0ee3650.jpg"
+        alt="Imagen de Splatoon 3"
+        class="splatoon-img"
+        aria-label="Imagen promocional de Splatoon 3"
+        loading="lazy"
+      />
+
+      <div class="adsense-slot" aria-label="Anuncio publicitario">
+        <!-- Ads slot responsive -->
+        <ins class="adsbygoogle"
+          style="display:inline-block;width:320px;height:100px"
+          data-ad-client="ca-pub-4797781361837050"
+          data-ad-slot="1234567890"></ins>
+      </div>
+
+      <h2 style="color: var(--color-primary); margin-top: 3rem;">Galería de imágenes</h2>
+      <div class="gallery" aria-label="Galería de imágenes">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Imagen gamer 1" />
+        <img src="https://images.unsplash.com/photo-1515165562835-cff6c41cbbad?auto=format&fit=crop&w=800&q=80" alt="Imagen gamer 2" />
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Imagen gamer 3" />
+      </div>
+    </section>
+
+    <!-- PÁGINA VIDEOS -->
+    <section id="videos" class="page" tabindex="0" aria-label="Página de videos">
+      <h2 style="color: var(--color-primary); text-align: center;">Videos recientes</h2>
+
+      <div class="videos-container" aria-live="polite">
+        <!-- Videos YouTube -->
+        <div class="video-frame" aria-label="Video reciente de YouTube">
+          <iframe
+            src="https://www.youtube.com/embed?listType=user_uploads&list=PGSEVECHASO&autoplay=0&mute=1"
+            title="Últimos videos de YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Videos TikTok (embed simple, los últimos 2) -->
+        <div class="video-frame" aria-label="Video reciente de TikTok 1">
+          <iframe
+            src="https://www.tiktok.com/embed/v1/7053836339859323130"
+            title="Video TikTok 1"
+            allow="autoplay; fullscreen"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="video-frame" aria-label="Video reciente de TikTok 2">
+          <iframe
+            src="https://www.tiktok.com/embed/v1/7053836401713733122"
+            title="Video TikTok 2"
+            allow="autoplay; fullscreen"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="adsense-slot" aria-label="Anuncio publicitario">
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4797781361837050"
+          data-ad-slot="0987654321"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      </div>
+    </section>
+
+    <!-- PÁGINA CONTACTO -->
+    <section id="contacto" class="page" tabindex="0" aria-label="Página de contacto">
+      <h2 style="color: var(--color-primary); text-align: center;">Contacto</h2>
+      <form aria-label="Formulario de contacto" style="max-width:400px; margin: 0 auto; display:flex; flex-direction: column; gap:1rem;">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required aria-required="true" />
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required aria-required="true" />
+        <label for="msg">Mensaje:</label>
+        <textarea id="msg" name="msg" rows="5" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
+        <button type="submit" style="background: var(--color-primary); border:none; color:#fff; padding:0.8rem; border-radius:10px; font-weight:700; cursor:pointer; transition: background-color 0.3s ease;">Enviar</button>
+      </form>
+
+      <p style="text-align:center; margin-top: 1rem; font-size:0.85rem; color: var(--color-primary);">© 2025 SEVECHASO - Todos los derechos reservados.</p>
+    </section>
+  </main>
+
+  <button id="scrollToTopBtn" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
   <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
+    // Navegación SPA
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const pages = document.querySelectorAll('.page');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Cambiar clases activas
+        navButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Mostrar solo la página objetivo
+        const target = btn.dataset.target;
+        pages.forEach(p => {
+          p.classList.toggle('active', p.id === target);
+        });
+
+        // Para accesibilidad, focus en sección activa
+        document.getElementById(target).focus();
+      });
+    });
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkModeToggle');
+    const bodyEl = document.body;
+
+    function setDarkMode(on) {
+      if (on) {
+        bodyEl.classList.add('light');
+        darkToggle.textContent = 'Modo Claro';
+        darkToggle.setAttribute('aria-pressed', 'true');
+      } else {
+        bodyEl.classList.remove('light');
+        darkToggle.textContent = 'Modo Oscuro';
+        darkToggle.setAttribute('aria-pressed', 'false');
+      }
+    }
+    // Lee la preferencia guardada
+    const savedMode = localStorage.getItem('sevechaso-darkmode');
+    if (savedMode === 'light') {
+      setDarkMode(true);
+    }
+
+    darkToggle.addEventListener('click', () => {
+      const isLight = bodyEl.classList.contains('light');
+      setDarkMode(!isLight);
+      localStorage.setItem('sevechaso-darkmode', !isLight ? 'light' : 'dark');
+    });
+
+    // Scroll to top
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Adsense async load
+    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-
-  <div class="gaming-grid">
-
-    <!-- Twitch -->
-    <div class="game-card" style="border-left: 5px solid #9147ff;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg" alt="Twitch">
-      <h2>Twitch</h2>
-      <a href="https://twitch.tv/sevec_pro" target="_blank" style="color:#9147ff;">sevec_pro</a>
-    </div>
-
-    <!-- YouTube -->
-    <div class="game-card" style="border-left: 5px solid #ff0000;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
-      <h2>YouTube</h2>
-      <a href="https://youtube.com/@PGSEVECHASO" target="_blank" style="color:#ff0000;">PG: SEVECHASO</a>
-    </div>
-
-    <!-- TikTok -->
-    <div class="game-card" style="border-left: 5px solid #00f2ea;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok">
-      <h2>TikTok</h2>
-      <a href="https://www.tiktok.com/@yoichi_sano" target="_blank" style="color:#00f2ea;">@yoichi_sano</a>
-    </div>
-
-    <!-- Steam -->
-    <div class="game-card" style="border-left: 5px solid #66c0f4;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
-      <h2>Steam</h2>
-      <a href="https://store.steampowered.com/" target="_blank" style="color:#66c0f4;">store.steampowered.com</a>
-    </div>
-
-    <!-- Epic Games -->
-    <div class="game-card" style="border-left: 5px solid #000000;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games">
-      <h2>Epic Games</h2>
-      <a href="https://www.epicgames.com/store/" target="_blank" style="color:white;">epicgames.com</a>
-    </div>
-
-    <!-- Kick -->
-    <div class="game-card" style="border-left: 5px solid #53fc18;">
-      <img src="https://seeklogo.com/images/K/kick-logo-22BFD27E9D-seeklogo.com.png" alt="Kick" width="40">
-      <h2>Kick</h2>
-      <a href="https://kick.com/" target="_blank" style="color:#53fc18;">kick.com</a>
-    </div>
-
-    <!-- Nintendo -->
-    <div class="game-card" style="border-left: 5px solid #e60012;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg" alt="Nintendo">
-      <h2>Nintendo</h2>
-      <a href="https://www.nintendo.com/es/" target="_blank" style="color:#e60012;">nintendo.com/es</a>
-    </div>
-
-    <!-- IGN -->
-    <div class="game-card" style="border-left: 5px solid #ff0000;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/IGN_Entertainment_Logo.svg" alt="IGN">
-      <h2>IGN</h2>
-      <a href="https://www.ign.com/" target="_blank" style="color:#ff0000;">ign.com</a>
-    </div>
-  </div>
-
-  <!-- Imagen Splatoon 3 -->
-  <img class="splatoon-img" src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_auto/ncom/en_US/games/switch/s/splatoon-3-switch/hero" alt="Splatoon 3">
-
-  <!-- Anuncio 2 -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-client="ca-pub-4797781361837050"
-       data-ad-slot="9624223435"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-
-  <footer>
-    &copy; 2025 Sevechaso. Todos los derechos reservados. Hecho con pasión gamer. 🕹️
-  </footer>
 </body>
 </html>
-
-
