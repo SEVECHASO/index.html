@@ -1,59 +1,353 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Tutorial Central: Aprende HTML, CSS, IA, diseño web y más con guías paso a paso en español.">
-  <meta name="author" content="Tutorial Central">
-  <title>Tutorial Central | Aprende Tecnología Fácil</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Fit&Finance — Mejora tus hábitos físicos y financieros</title>
+  <meta name="description" content="Fit&Finance: mejora tus hábitos físicos y financieros con cursos, clases y productos. Aprende a invertir, transformar tu salud y crecer profesionalmente." />
+  <meta name="keywords" content="Finanzas, Salud, cursos online, tienda online, bienestar, economía, hábitos saludables, educación financiera, inversión, emprendimiento" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="./" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Tutorial Central</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="tutorial.html">Tutoriales</a></li>
-        <li><a href="acerca.html">Acerca</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#" id="logo">
+          <span class="logo-round" aria-hidden="true">F&F</span>
+          <span class="brand-text">
+            <strong>Fit&amp;Finance</strong>
+            <small class="tagline" data-lang-es="Mejora tu vida y finanzas" data-lang-en="Improve your life & finances">Mejora tu vida y finanzas</small>
+          </span>
+        </a>
+      </div>
+
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="#home" data-scroll data-lang-link>Inicio</a></li>
+          <li><a href="#store" data-scroll data-lang-link>Tienda</a></li>
+          <li><a href="#services" data-scroll data-lang-link>Servicios</a></li>
+          <li><a href="#info" data-scroll data-lang-link>Información</a></li>
+          <li><a href="#contact" data-scroll data-lang-link>Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-ghost language-toggle" id="langToggle" aria-label="Cambiar idioma">
+          <i class="fa-solid fa-language"></i> <span id="langLabel">ES</span>
+        </button>
+        <button class="btn btn-primary cta" id="ctaShop" data-lang-es="Compra ahora" data-lang-en="Shop now">Compra ahora</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Aprende Tecnología Fácil</h2>
-      <p>Explora guías paso a paso sobre HTML, CSS, inteligencia artificial, diseño web y muchas herramientas útiles. Contenido actualizado, práctico y en español.</p>
-      <a href="tutoriales.html" class="btn">Ver Tutoriales</a>
+  <!-- HERO / SLIDER -->
+  <section id="home" class="hero">
+    <div class="hero-slider">
+      <!-- slide 1 -->
+      <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?fitness,workout');">
+        <div class="slide-inner container">
+          <h1 data-lang-es="Mejora tu vida, salud, hábitos y finanzas al alcance de todos" data-lang-en="Improve your life, health, habits and finances within reach">Mejora tu vida, salud, hábitos y finanzas al alcance de todos</h1>
+          <p class="lead" data-lang-es="Cursos y productos que combinan bienestar físico con educación financiera." data-lang-en="Courses and products combining physical wellness with financial education.">Cursos y productos que combinan bienestar físico con educación financiera.</p>
+          <div class="hero-cta">
+            <a href="#services" class="btn btn-light" data-lang-es="Ver servicios" data-lang-en="View services">Ver servicios</a>
+            <a href="#store" class="btn btn-outline" data-lang-es="Ir a la tienda" data-lang-en="Go to store">Ir a la tienda</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- slide 2 -->
+      <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?finance,desk');">
+        <div class="slide-inner container">
+          <h2 data-lang-es="Aprende a invertir y a cuidar tu cuerpo" data-lang-en="Learn to invest and take care of your body">Aprende a invertir y a cuidar tu cuerpo</h2>
+          <p class="lead" data-lang-es="Clases prácticas, cursos y productos seleccionados por expertos." data-lang-en="Practical classes, courses and products selected by experts.">Clases prácticas, cursos y productos seleccionados por expertos.</p>
+          <div class="hero-cta">
+            <a href="#info" class="btn btn-light" data-lang-es="Más información" data-lang-en="More info">Más información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- slider controls -->
+    <div class="slider-controls">
+      <button class="prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="store" class="section store container">
+      <div class="section-header">
+        <h2 data-lang-es="Tienda" data-lang-en="Store">Tienda</h2>
+        <p class="section-sub" data-lang-es="Productos categorizados: Fitness y Finanzas. Pulsa 'Mostrar precio' para ver el coste." data-lang-en="Products categorized: Fitness and Finance. Click 'Show price' to reveal cost.">Productos categorizados: Fitness y Finanzas. Pulsa 'Mostrar precio' para ver el coste.</p>
+      </div>
+
+      <!-- product filter / categories -->
+      <div class="product-filter">
+        <button class="filter-btn active" data-cat="all" data-lang-es="Todos" data-lang-en="All">Todos</button>
+        <button class="filter-btn" data-cat="fitness" data-lang-es="Fitness" data-lang-en="Fitness">Fitness</button>
+        <button class="filter-btn" data-cat="finance" data-lang-es="Finanzas" data-lang-en="Finance">Finanzas</button>
+      </div>
+
+      <!-- product carousel -->
+      <div class="product-carousel" aria-live="polite">
+        <!-- product card template repeated -->
+        <article class="product-card" data-cat="fitness">
+          <img src="https://picsum.photos/seed/fit1/400/300" alt="Producto - Fitness 1" loading="lazy" />
+          <div class="product-body">
+            <h3 data-lang-es="Plan Fitness Básico" data-lang-en="Basic Fitness Plan">Plan Fitness Básico</h3>
+            <p class="muted" data-lang-es="Entrenamiento en casa + guía de hábitos." data-lang-en="Home workouts + habits guide.">Entrenamiento en casa + guía de hábitos.</p>
+            <div class="price-area">
+              <span class="price hidden" aria-hidden="true">$29.99</span>
+              <button class="btn btn-sm reveal-price" aria-pressed="false" data-price="$29.99" data-lang-es="Mostrar precio" data-lang-en="Show price">Mostrar precio</button>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline btn-sm" data-lang-es="Ver producto" data-lang-en="View product">Ver producto</button>
+              <button class="btn btn-primary btn-sm" data-lang-es="Añadir al carrito" data-lang-en="Add to cart"><i class="fa-solid fa-cart-plus"></i> Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="finance">
+          <img src="https://picsum.photos/seed/fin1/400/300" alt="Producto - Finanzas 1" loading="lazy" />
+          <div class="product-body">
+            <h3 data-lang-es="Curso Finanzas Personales" data-lang-en="Personal Finance Course">Curso Finanzas Personales</h3>
+            <p class="muted" data-lang-es="Aprende a ahorrar e invertir desde cero." data-lang-en="Learn to save and invest from scratch.">Aprende a ahorrar e invertir desde cero.</p>
+            <div class="price-area">
+              <span class="price hidden" aria-hidden="true">$49.99</span>
+              <button class="btn btn-sm reveal-price" aria-pressed="false" data-price="$49.99" data-lang-es="Mostrar precio" data-lang-en="Show price">Mostrar precio</button>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline btn-sm" data-lang-es="Ver producto" data-lang-en="View product">Ver producto</button>
+              <button class="btn btn-primary btn-sm" data-lang-es="Añadir al carrito" data-lang-en="Add to cart"><i class="fa-solid fa-cart-plus"></i> Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="fitness">
+          <img src="https://picsum.photos/seed/fit2/400/300" alt="Producto - Fitness 2" loading="lazy" />
+          <div class="product-body">
+            <h3 data-lang-es="Guía Nutricional" data-lang-en="Nutrition Guide">Guía Nutricional</h3>
+            <p class="muted" data-lang-es="Plan de alimentación equilibrado." data-lang-en="Balanced meal plan.">Plan de alimentación equilibrado.</p>
+            <div class="price-area">
+              <span class="price hidden" aria-hidden="true">$19.99</span>
+              <button class="btn btn-sm reveal-price" aria-pressed="false" data-price="$19.99" data-lang-es="Mostrar precio" data-lang-en="Show price">Mostrar precio</button>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline btn-sm" data-lang-es="Ver producto" data-lang-en="View product">Ver producto</button>
+              <button class="btn btn-primary btn-sm" data-lang-es="Añadir al carrito" data-lang-en="Add to cart"><i class="fa-solid fa-cart-plus"></i> Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="finance">
+          <img src="https://picsum.photos/seed/fin2/400/300" alt="Producto - Finanzas 2" loading="lazy" />
+          <div class="product-body">
+            <h3 data-lang-es="Mini curso Inversión 101" data-lang-en="Investment 101 Mini Course">Mini curso Inversión 101</h3>
+            <p class="muted" data-lang-es="Conceptos básicos para empezar a invertir." data-lang-en="Basic concepts to start investing.">Conceptos básicos para empezar a invertir.</p>
+            <div class="price-area">
+              <span class="price hidden" aria-hidden="true">$39.99</span>
+              <button class="btn btn-sm reveal-price" aria-pressed="false" data-price="$39.99" data-lang-es="Mostrar precio" data-lang-en="Show price">Mostrar precio</button>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline btn-sm" data-lang-es="Ver producto" data-lang-en="View product">Ver producto</button>
+              <button class="btn btn-primary btn-sm" data-lang-es="Añadir al carrito" data-lang-en="Add to cart"><i class="fa-solid fa-cart-plus"></i> Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more product-cards as needed -->
+      </div>
     </section>
 
-    <section class="destacados">
-      <h3>Tutoriales Destacados</h3>
-      <div class="grid">
-        <article>
-          <h4><a href="tutorial.html?id=html-basico">HTML Básico</a></h4>
-          <p>Comienza desde cero con la estructura de las páginas web.</p>
-        </article>
-        <article>
-          <h4><a href="tutorial.html?id=ia-principiantes">IA para Principiantes</a></h4>
-          <p>Descubre cómo usar inteligencia artificial en tus proyectos diarios.</p>
-        </article>
-        <article>
-          <h4><a href="tutorial.html?id=diseño-responsive">Diseño Responsive</a></h4>
-          <p>Aprende a crear sitios web que se vean bien en cualquier dispositivo.</p>
-        </article>
+    <section id="services" class="section services container">
+      <div class="section-header">
+        <h2 data-lang-es="Servicios" data-lang-en="Services">Servicios</h2>
+        <p class="section-sub" data-lang-es="Ofrecemos cursos, clases y asesorías en dos áreas principales." data-lang-en="We offer courses, classes and coaching in two main areas.">Ofrecemos cursos, clases y asesorías en dos áreas principales.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-dumbbell icon-lg"></i>
+          <h3 data-lang-es="Fitness" data-lang-en="Fitness">Fitness</h3>
+          <p data-lang-es="Programas de entrenamiento, planes nutricionales y coaching de hábitos." data-lang-en="Training programs, nutrition plans and habit coaching.">Programas de entrenamiento, planes nutricionales y coaching de hábitos.</p>
+          <a href="#contact" class="btn btn-outline" data-lang-es="Solicitar info" data-lang-en="Request info">Solicitar info</a>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-chart-line icon-lg"></i>
+          <h3 data-lang-es="Finanzas" data-lang-en="Finance">Finanzas</h3>
+          <p data-lang-es="Cursos de finanzas personales, inversión para principiantes y asesoría financiera." data-lang-en="Personal finance courses, beginner investing and financial advising.">Cursos de finanzas personales, inversión para principiantes y asesoría financiera.</p>
+          <a href="#contact" class="btn btn-outline" data-lang-es="Solicitar asesoría" data-lang-en="Request advisory">Solicitar asesoría</a>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-graduation-cap icon-lg"></i>
+          <h3 data-lang-es="Formación" data-lang-en="Education">Formación</h3>
+          <p data-lang-es="Clases en directo, cursos grabados y recursos descargables." data-lang-en="Live classes, recorded courses and downloadable resources.">Clases en directo, cursos grabados y recursos descargables.</p>
+          <a href="#info" class="btn btn-outline" data-lang-es="Ver más" data-lang-en="See more">Ver más</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="info" class="section info container">
+      <div class="section-header">
+        <h2 data-lang-es="Información" data-lang-en="Information">Información</h2>
+        <p class="section-sub" data-lang-es="Todo lo que necesitas saber sobre Fit&Finance." data-lang-en="Everything you need to know about Fit&Finance.">Todo lo que necesitas saber sobre Fit&Finance.</p>
+      </div>
+
+      <div class="info-grid">
+        <div>
+          <h3 data-lang-es="Nuestra misión" data-lang-en="Our mission">Nuestra misión</h3>
+          <p data-lang-es="Mejorar la calidad de vida de nuestros usuarios combinando salud y educación financiera accesible." data-lang-en="Improve people's quality of life by combining health and accessible financial education.">Mejorar la calidad de vida de nuestros usuarios combinando salud y educación financiera accesible.</p>
+        </div>
+
+        <div>
+          <h3 data-lang-es="Cómo funciona" data-lang-en="How it works">Cómo funciona</h3>
+          <ol>
+            <li data-lang-es="Explora productos y cursos por categoría." data-lang-en="Explore products and courses by category.">Explora productos y cursos por categoría.</li>
+            <li data-lang-es="Pulsa 'Mostrar precio' para revelar costes y añadir al carrito." data-lang-en="Click 'Show price' to reveal costs and add to cart.">Pulsa 'Mostrar precio' para revelar costes y añadir al carrito.</li>
+            <li data-lang-es="Contacta con nosotros para dudas o soporte." data-lang-en="Contact us for questions or support.">Contacta con nosotros para dudas o soporte.</li>
+          </ol>
+        </div>
+
+        <div>
+          <h3 data-lang-es="Disponibilidad" data-lang-en="Availability">Disponibilidad</h3>
+          <p data-lang-es="Cursos disponibles en línea. Productos con envío digital o físico según el artículo." data-lang-en="Courses available online. Products with digital or physical shipping depending on item.">Cursos disponibles en línea. Productos con envío digital o físico según el artículo.</p>
+        </div>
+      </div>
+
+      <!-- FAQ with accordions -->
+      <div class="faq">
+        <h4 data-lang-es="Preguntas frecuentes" data-lang-en="Frequently Asked Questions">Preguntas frecuentes</h4>
+
+        <div class="accordion">
+          <button class="accordion-toggle" aria-expanded="false">
+            <span data-lang-es="¿Cómo veré el precio de un producto?" data-lang-en="How do I see a product's price?">¿Cómo veré el precio de un producto?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-panel">
+            <p data-lang-es="Haz clic en 'Mostrar precio' en la ficha de producto y el precio se revelará." data-lang-en="Click 'Show price' on the product card and the price will be revealed.">Haz clic en 'Mostrar precio' en la ficha de producto y el precio se revelará.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <button class="accordion-toggle" aria-expanded="false">
+            <span data-lang-es="¿Los cursos son en directo?" data-lang-en="Are the courses live?">¿Los cursos son en directo?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-panel">
+            <p data-lang-es="Ofrecemos tanto cursos grabados como sesiones en directo según el programa." data-lang-en="We offer both recorded courses and live sessions depending on the program.">Ofrecemos tanto cursos grabados como sesiones en directo según el programa.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <button class="accordion-toggle" aria-expanded="false">
+            <span data-lang-es="¿Cómo protegen mis datos?" data-lang-en="How do you protect my data?">¿Cómo protegen mis datos?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-panel">
+            <p data-lang-es="La información es confidencial y no se comparte con terceros. Compras 100% seguras." data-lang-en="Information is confidential and not shared with third parties. Purchases 100% secure.">La información es confidencial y no se comparte con terceros. Compras 100% seguras.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact container">
+      <div class="section-header">
+        <h2 data-lang-es="Contacto" data-lang-en="Contact">Contacto</h2>
+        <p class="section-sub" data-lang-es="¿Tienes dudas o problema con una compra? Escríbenos." data-lang-en="Have questions or issues with a purchase? Write to us.">¿Tienes dudas o problema con una compra? Escríbenos.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 data-lang-es="Redes y correo" data-lang-en="Social & Email">Redes y correo</h3>
+          <p><i class="fa-brands fa-tiktok"></i> <strong>@finance_and_fit</strong></p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <!-- email obfuscation: readable but protected; JS converts to mailto on click -->
+            <a href="#" id="contactEmail" class="obfuscated-email" data-user="contact" data-domain="fitfinance.com">contact [at] fitfinance [dot] com</a>
+          </p>
+
+          <div class="trust">
+            <i class="fa-solid fa-shield-halved"></i>
+            <p data-lang-es="Pagos seguros y protección al cliente." data-lang-en="Secure payments and customer protection.">Pagos seguros y protección al cliente.</p>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3 data-lang-es="Formulario de soporte" data-lang-en="Support form">Formulario de soporte</h3>
+          <form id="supportForm" novalidate>
+            <div class="form-row">
+              <label for="name" data-lang-es="Nombre" data-lang-en="Name">Nombre</label>
+              <input id="name" name="name" type="text" required placeholder="Tu nombre" />
+            </div>
+
+            <div class="form-row">
+              <label for="email" data-lang-es="Correo electrónico" data-lang-en="Email">Correo electrónico</label>
+              <input id="email" name="email" type="email" required placeholder="tu@correo.com" />
+            </div>
+
+            <div class="form-row">
+              <label for="topic" data-lang-es="Asunto" data-lang-en="Subject">Asunto</label>
+              <select id="topic" name="topic" required>
+                <option value="" data-lang-es="Selecciona..." data-lang-en="Select...">Selecciona...</option>
+                <option value="order" data-lang-es="Problema con compra" data-lang-en="Order issue">Problema con compra</option>
+                <option value="product" data-lang-es="Consulta de producto" data-lang-en="Product question">Consulta de producto</option>
+                <option value="other" data-lang-es="Otro" data-lang-en="Other">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message" data-lang-es="Mensaje" data-lang-en="Message">Mensaje</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos tu problema o pregunta..."></textarea>
+            </div>
+
+            <div class="form-row form-actions">
+              <button type="submit" class="btn btn-primary" data-lang-es="Enviar" data-lang-en="Send">Enviar</button>
+              <button type="reset" class="btn btn-ghost" data-lang-es="Limpiar" data-lang-en="Clear">Limpiar</button>
+            </div>
+
+            <p id="formStatus" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Tutorial Central. Todos los derechos reservados.</p>
-    <ul>
-      <li><a href="privacidad.html">Política de privacidad</a></li>
-      <li><a href="terminos.html">Términos y condiciones</a></li>
-    </ul>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <a href="#" class="footer-logo">Fit&amp;Finance</a>
+        <p class="muted" data-lang-es="La información es confidencial y no se comparte con terceros. Compras 100% seguras." data-lang-en="Information is confidential and not shared with third parties. Purchases 100% secure.">La información es confidencial y no se comparte con terceros. Compras 100% seguras.</p>
+        <p class="small-muted">© <span id="year"></span> Fit&Finance</p>
+      </div>
+
+      <div class="footer-right">
+        <h4 data-lang-es="Contáctanos" data-lang-en="Contact us">Contáctanos</h4>
+        <ul class="socials">
+          <li><a href="https://www.tiktok.com/@finance_and_fit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
+          <!-- Add more social links if needed -->
+        </ul>
+
+        <nav class="footer-links">
+          <a href="#" data-lang-es="Política de Privacidad" data-lang-en="Privacy Policy">Política de Privacidad</a>
+          <a href="#" data-lang-es="Aviso Legal" data-lang-en="Legal Notice">Aviso Legal</a>
+          <a href="#" data-lang-es="Cookies" data-lang-en="Cookies">Cookies</a>
+        </nav>
+      </div>
+    </div>
   </footer>
+
+  <!-- JS -->
+  <script src="./js/script.js" defer></script>
 </body>
 </html>
